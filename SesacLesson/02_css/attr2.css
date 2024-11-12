@@ -1,0 +1,171 @@
+.d-block{
+    display: block;
+    background-color: antiquewhite;
+    border: 1px solid black;
+    width: 50px;
+    height: 50px;
+    font-size: 13px;
+
+    /* 여백 적용, padding은 내부여백, margin은 외부 여백 */
+    padding: 10px;
+    margin: 10px;
+}
+
+.d-inline{
+    display: inline;
+    background-color: pink;
+    border: 1px solid blue;
+
+    /* inline은 가로, 세로 적용 안됨 */
+    width: 100px;
+    height: 100px;
+
+    /* 여백 적용 */
+    /* padding 위아래 배경색만 적용 */
+    padding: 10px;
+    margin: 10px;
+}
+
+.d-inline-block{
+    display: inline-block;
+    background-color: aliceblue;
+    border: 1px solid green;
+
+    width: 50px;
+    height: 50px;
+    font-size: 12px;
+
+    /* 여백적용 */
+    padding: 10px;
+    margin: 10px;
+}
+
+.parent{
+    width: 500px;
+    height: 250px;
+    background-color: red;
+}
+
+.parent > .min{
+    min-width: 400px;
+    height: 100px;
+    background-color: orange;
+}
+
+.parent > .max{
+    max-width: 400px;
+    height: 100px;
+    background-color: violet;
+}
+
+/* 단위 확인 */
+.box{
+    background-color: beige;
+    border: 1px solid black;
+}
+
+.box-px{
+    width: 50px;
+    height: 50px;
+}
+
+.box-view{
+    width: 50vw;
+    height: 50vh;
+}
+
+.box-per{
+    width: 100%;
+    height: 50%;
+}
+
+html{
+    font-size: 20px;
+}
+/* html 의 폰트사이즈가 1rem */
+.rem{
+    font-size: 2rem;
+}
+
+/* 부모의 폰트사이즈가 1em */
+.em{
+    font-size: 2em;
+}
+
+.square{
+    width: 100px;
+    height: 100px;
+    border: 1px solid gray;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.border{
+    /* width, style, color 순으로 단축속성 작성 */
+    border: 1px solid black;
+    border-color: blue;
+    border-style: dotted;
+    border-width: 5px;
+
+    border-left: 2px dashed rgb(0, 255, 17);
+    border-top-style:solid
+}
+
+.rounded{
+    border-radius: 10%;
+    /* 단축속성 */
+    border-radius: 5px 10px 20px 40px;
+    border-radius: 5px 20px 50px;
+    border-radius: 5px 50px;
+}
+
+.box-sizing{
+    border: 15px solid red;
+    padding: 20px;
+    background-color: yellow;
+}
+
+.content-box{
+    box-sizing: content-box;
+}
+
+.border-box{
+    box-sizing: border-box;
+}
+
+.d-none {
+    display: none;
+    background-color: red;
+  }
+  .invisible {
+    /* visibility: hidden; */
+    background-color: orangered;
+  }
+  
+  .opacity-0 {
+    /* opacity: 0; */
+    background-color: tomato;
+  }
+
+  .square > img[alt='pooh 사진']{
+    width: 200px;
+  }
+
+  .overflow-hidden{
+    overflow: hidden;
+  }
+
+  .overflow-auto{
+    overflow: auto;
+  }
+  .overflow-scroll{
+    overflow: scroll;
+  }
+  .overflow-visible{
+    overflow: visible;
+    /* overflow-x: hidden;
+    overflow-y: auto; */
+    overflow: hidden auto;
+  }
+
+   
