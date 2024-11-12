@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>태그 사용해보기!</title>
+</head>
+
+<body style="padding-bottom: 200px;">
+  <h1>안녕하세요. h1입니다..</h1>
+  <h2>안녕하세요. h2입니다..</h2>
+  <h3>안녕하세요. h3입니다..</h3>
+  <h4>안녕하세요. h4입니다..</h4>
+  <h5>안녕하세요. h5입니다..</h5>
+  <h6>안녕하세요. h6입니다..</h6>
+  <p>
+    오늘은 날씨가 좋습니다. 첫번째 수업인 html.. <br />
+    재미있군요!!
+  </p>
+  <hr />
+
+  <!-- 순서가 있는 리스트와 순서가 없는 리스트 -->
+  <h3>아이스라떼 만드는 법</h3>
+  <!-- ol type 1(default), a, A, i, I -->
+  <ol type="i">
+    <li><b>우유</b>를 <strong>컵</strong>에 넣습니다.</li>
+    <li><i>얼음</i>을 넣습니다.</li>
+    <li><em>에스프레소 샷</em>을 넣습니다!</li>
+  </ol>
+
+  <h3>오늘의 할 일</h3>
+  <!-- ul type disc(default), circle, square -->
+  <ul type="square">
+    <li><u>html</u> 공부하기</li>
+    <li>운동하기</li>
+    <li><del>맛있는</del> 점심 먹기</li>
+  </ul>
+
+  <!-- 리스트 중첩해보기! -->
+  <ul>
+    <h3>내가 좋아하는 음식</h3>
+    <li>양식
+      <ul type="circle">
+        <li>스파게티</li>
+        <li>스테이크</li>
+      </ul>
+    </li>
+    <li>일식
+      <ul type="circle">
+        <li>돈까스</li>
+        <li>라멘</li>
+      </ul>
+    </li>
+  </ul>
+
+  <p>안녕하세요. .</p>
+  <pre>안녕하세요.         .</pre>
+  <details>
+    <summary>summary에는 제목을 쓰면 돼요</summary>
+    <div>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    </div>
+  </details>
+
+  <hr>
+  <h2>img 태그와 a 태그</h2>
+  <!-- img 태그 필수속성: src, alt -->
+
+  <img src="https://recipe1.ezmember.co.kr/cache/recipe/2018/12/07/4a85594c164f443a24a1579e381bd38a1.jpg" alt="짜파게티 사진"
+    width="200" />
+  <!-- 절대경로, /의 의미가 매번 달라질 수 있음 -->
+  <img src="/01_html/pooh.webp" alt="푸 사진" width="100">
+
+  <!-- 상대경로, .이 자신이 있는 위치를 가리킴 -->
+  <img src="./pooh.webp" alt="푸 사진" width="100">
+
+  <br />
+  <!-- a 태그 필수속성: href -->
+  <a href="http://www.naver.com" target="_blank">네이버로 이동!</a>
+  <a href="./start.html" target="_self">start html로 이동~</a>
+
+  <!-- 간단 실습!
+  - 새로운 사진을 저장하고
+  - 저장한 사진을 클릭했을 때 구글로 이동되도록 하기
+  -->
+  <br>
+  <a href="http://www.google.com">
+    <img src="./pooh.webp" alt="pooh image" width="50">
+  </a>
+</body>
+
+</html>
