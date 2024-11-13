@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- bootstrap cdn -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- bootstrap icon cdn -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- sweet alert cdn -->
+    <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+    <style>
+
+        .bi-list-ul{
+            font-size: 100px;
+        }
+        .container1{
+            display: flex;
+            position: relative;
+            justify-content: end;
+            font-weight: bold;
+        }
+
+        .headername > p {
+            position: absolute;
+            font-size: 30px;
+            font-weight: bold;
+            left: 5%;
+            bottom: 3%;
+        }
+
+        li{
+            list-style: none;
+        }
+
+        .clothes{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            line-height: 30px;
+            font-size: 16px;
+           
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- nav bar  -->
+    <div class="px-3 py-2 text-white bg-dark-subtle border-bottom">
+        <div class="container1">
+           <div class="headername text-dark-emphasis ms-5 mt-5"> <p>진우의 포트폴리오!</p> </div>
+          <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="/" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
+              <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
+            </a>
+            
+            <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
+              <li>
+                <a href="#" class="nav-link text-secondary">
+                  <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#home"/></svg>
+                  홈
+                </a>
+              </li>
+              <li>
+                <a href="#" class="nav-link text-white">
+                  <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#speedometer2"/></svg>
+                  인사말
+                </a>
+              </li>
+              <li>
+                <a href="#" class="nav-link text-white">
+                  <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#table"/></svg>
+                  약력
+                </a>
+              </li>
+              <li>
+                <a href="#" class="nav-link text-white">
+                  <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#grid"/></svg>
+                  목차
+                </a>
+              </li>
+              <li>
+                <a href="#" class="nav-link text-white">
+                  <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#people-circle"/></svg>
+                  포트폴리오
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- heroes -->
+
+      <h1 class="visually-hidden">Heroes examples</h1>
+
+  <div class="px-4 py-5 my-5 text-center">
+<!-- chart.js -->
+ 
+
+    <img class="d-block mx-auto mb-4" src="./images/deer.jpg" alt="" width="500" height="auto">
+    <h1 class="display-5 fw-bold text-body-emphasis">프론트 엔드 개발자 '임진우'입니다</h1>
+    <div class="col-lg-6 mx-auto">
+      <p class="lead mb-4"><p>안녕하세요 성장형 개발자</p> <p>임진우입니다. </p> <p>저의 브라우저에 오신 것을 환영합니다.</p>
+      <button onclick="sweetalert()"> 눌러주세요 </button>
+        
+      
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+        
+      </div>
+    </div>
+  </div>
+  
+    <!-- features -->
+    <div class="container px-4 py-5" id="icon-grid">
+        <h2 class="pb-2 border-bottom">약력</h2>
+    
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5">
+          <div class="col d-flex align-items-start">
+            <svg class="bi text-body-secondary flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#bootstrap"/></svg>
+            <div>
+              <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">이름</h3>
+              <p>임진우</p>
+            </div>
+          </div>
+          <div class="col d-flex align-items-start">
+            <svg class="bi text-body-secondary flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#cpu-fill"/></svg>
+            <div>
+              <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">생년월일</h3>
+              <p>1998.09.08</p>
+            </div>
+          </div>
+          <div class="col d-flex align-items-start">
+            <svg class="bi text-body-secondary flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#calendar3"/></svg>
+            <div>
+              <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">학력</h3>
+              <p>경기대학교 외식조리학과 재학 중</p>
+            </div>
+          </div>
+          <div class="col d-flex align-items-start">
+            <svg class="bi text-body-secondary flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#home"/></svg>
+            <div>
+              <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">경력</h3>
+              <p>SeSac_풀스택 웹 개발자 부트캠프 2기 수료중</p>
+            </div>
+          </div>
+          <div class="col d-flex align-items-start">
+            <svg class="bi text-body-secondary flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#speedometer2"/></svg>
+            <div>
+              <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">연락처</h3>
+              <p>010-4449-1737</p>
+            </div>
+          </div>
+          <div class="col d-flex align-items-start">
+            <svg class="bi text-body-secondary flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#toggles2"/></svg>
+            <div>
+              <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">이메일</h3>
+              <p> wlsdnrhdwkd@gmail.com</p>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    
+      <div class="b-example-divider"></div>
+      
+      
+      
+      <div class="container">
+        <hr class="featurette-divider">
+        <h2>목차</h2>
+        <div class="container d-flex">
+            <h2 class="m-2 border-bottom"></h2>
+            <br><br>
+            
+            <i class="bi bi-list-ul"></i>
+            <ul style="margin-top: 3%; font-weight: bold; font-size: ;">
+                <li>포트폴리오1</li>
+                <li>포트폴리오2</li>
+                <li>포트폴리오3</li>
+                
+            </ul>
+
+
+        </div>
+            <!--carousel  -->
+        </div>
+        
+        <div class="container marketing">
+
+            
+         
+        
+        
+            <!-- START THE FEATURETTES -->
+        
+            <hr class="featurette-divider">
+        
+            <div class="row featurette clothes">
+              <div class="col-md-7">
+                <h2 class="featurette-heading fw-normal lh-1"><i class="bi bi-window-stack"></i>포트폴리오1 <span class="text-body-secondary">쇼핑몰 3D 모델 구현</span></h2>
+                <p class="lead">판매 중인 옷을 클릭하면 구매자의 체형과 비슷한 데이터 값의 마네킹이 등장해 옷을 시착합니다.</p>
+              </div>
+              <div class="col-md-5">
+                <img src="./images/clothes.png" alt="">
+                
+              </div>
+            </div>
+        
+            <hr class="featurette-divider">
+        
+            <div class="row featurette clothes">
+              <div class="col-md-7 order-md-2">
+                <h2 class="featurette-heading fw-normal lh-1"><i class="bi bi-window-stack"></i>포트폴리오2 <span class="text-body-secondary">몸무게 예측 어플리케이션</span></h2>
+                <p class="lead">사용자의 일일 식사량과 활동량을 기록하면 내일의 몸무게를 예측해줍니다.</p>
+              </div>
+              <div class="col-md-5 order-md-1">
+                <img src="./images/weight.png" alt="">
+              </div>
+            </div>
+        
+            <hr class="featurette-divider">
+        
+            <div class="row featurette clothes">
+              <div class="col-md-7">
+                <h2 class="featurette-heading fw-normal lh-1"><i class="bi bi-window-stack"></i>포트폴리오3 <span class="text-body-secondary">날씨별 옷차림 추천</span></h2>
+                <p class="lead">기상 시 휴대폰의 잠금 화면에 날씨를 표시하고 그에 걸맞는 옷차림을 추천해줍니다.</p>
+              </div>
+              <img src="./images/weather.png" alt="">
+              <div class="col-md-5">
+               
+              </div>
+            </div>
+        
+            <hr class="featurette-divider">
+
+
+      <!-- footer -->
+
+      <div class="container">
+        <footer class="py-3 my-4">
+          <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Features</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Contents</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Contact</a></li>
+
+          </ul>
+          <p class="text-center text-body-secondary">&copy; 2024 woojin, Inc</p>
+        </footer>
+      </div>
+
+      <script src="https://cdn.jsdelivr.net/npm/fullpage.js/dist/fullpage.min.js"></script>
+      <script>
+       function sweetalert(){
+        Swal.fire({
+      title: "EXP+1",
+      text: "That thing is still around?",
+      icon: "question"
+      });}
+     
+      </script>
+      <!-- sweetalert2 cdn -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+<!-- bootstrap cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
