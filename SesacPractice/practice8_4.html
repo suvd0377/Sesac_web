@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>크기에 따라 자리 바꾸기</title>
+    <style>
+        body{
+            margin: 10;
+            padding: 0;
+        }
+        .boxs{
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+            border: 4 solid red ;
+            cursor: pointer;
+        }
+        @media screen and (min-width:700px){
+            .boxs{
+                
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="boxs box1"></div>
+    <div class="boxs box2"></div>
+    <div class="boxs box3"></div>
+</body>
+</html>
