@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>감정 일기 쓰기</title>
+
+     <!-- Bootstrap CSS -->
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+     <!-- FullPage.js CSS -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.css">
+ 
+     <!-- SweetAlert2 CSS -->
+     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.4/dist/sweetalert2.min.css" rel="stylesheet">
+
+     <style>
+        body{
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        .section{
+            text-align: center;
+            padding: 5rem 0;
+            color: white;
+        }
+
+        .emotion-btn{
+            margin: 10px;
+            font-size: 1.5rem;
+            padding: 10px 20px;
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+            transition: 0.5s;
+        }
+
+        .emotion-btn:hover{
+            transform: scale(1.1);
+        }
+
+        .emotion.selection{
+            margin-top: 30px;
+        }
+
+        .diary-entry{
+            margin-top: 30px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .btn-submit{
+            margin-top: 20px;
+        }
+
+        .diary-form{
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .emotion-btn.joy { 
+            background-color: #f7a1d7; 
+        }
+        .emotion-btn.sadness { 
+            background-color: #5b9bd5; 
+        } 
+        .emotion-btn.disgust { 
+            background-color: #8fc540; 
+        } 
+        .emotion-btn.fear { 
+            background-color: #9b59b6; 
+        } 
+        .emotion-btn.anger { 
+            background-color: #e74c3c; 
+        } 
+        .emotion-btn.hope { 
+            background-color: #87cefa; 
+        }
+        .emotion-btn.calm { 
+            background-color: #98fb98; 
+        } 
+        .btn.confusion { 
+            background-color: #808080; 
+        } 
+     </style>
+</head>
+<body>
+    <div id="fullpage">
+        <div class="section" style="background-image: url(./img/insideOut.jpg); background-size: cover;">
+            <h1>MOOD</h1>
+            <p>오늘의 기분 선택하세요</p>
+            <div class="emotion-selection">
+                <button class="emotion-btn joy" onclick="setEmotion('joy')">기쁨</button>
+                <button class="emotion-btn sadness" onclick="setEmotion('sadness')">슬픔</button>
+                <button class="emotion-btn disgust" onclick="setEmotion('disgust')">혐오</button>
+                <button class="emotion-btn fear" onclick="setEmotion('fear')">두려움</button>
+                <button class="emotion-btn anger" onclick="setEmotion('anger')">분노</button>
+                <button class="emotion-btn hope" onclick="setEmotion('hope')">희망</button>
+                <button class="emotion-btn calm" onclick="setEmotion('calm')">평온</button>
+                <button class="emotion-btn confusion" onclick="setEmotion('confusion')">혼간</button>
+            </div>
+        </div>
+        
+        <div class="section" style="background-image: url(./img/insideOut.jpg); background-size:cover;">
+            <h2>오늘 감정: <span id="selectedEmotion">선택 해주세요!</span></h2>
+            <form class="diary-form">
+                <div class="mb-3">
+                    <textarea class="form-control" id="diaryText" rows="5" placeholder="오늘의 기분과 생각을 적어보세요..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-success btn-submit">일기 저장하기</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Bootstrap JS, Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+    <!-- FullPage.js JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js"></script>
+
+    <!-- SweetAlert2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.4/dist/sweetalert2.min.js"></script>
+
+    <script>
+    new fullpage('#fullpage', {
+            autoScrolling: true,
+            scrollHorizontally: true,
+            navigation: true,
+            scrollOverflow: true,
+            onLeave: function(origin, destination, direction) {
+                if (destination.index === 1) {
+                    window.scrollTo(0, 0)
+                }
+            }
+        });
+
+    function setEmotion(emotion){
+        document.getElementById("selectedEmotion").innerText=emotion;
+        fullpage_api.moveTo(2);
+    }
+
+    document.querySelector('.diary-form').addEventListener('submit', function(event){
+        event.preventDefault()
+        
+        const emotion = document.getElementById("selectedEmotion").innerText
+        const diaryText = document.getElementById("diaryText").value
+        
+        if(!emotion || !diaryText){
+            Swal.fire('감정을 선택하고 일기를 작성해주세요!', '', 'warning');
+        }else{
+            Swal.fire({
+                title: '일기 작성 완료!',
+                text: '당신의 감정은 "' + emotion + '" 입니다.',
+                icon: 'success',
+                confirmButtonText: '확인'
+            }).then(() => {
+                document.getElementById("diaryText").value = '';
+                document.getElementById("selectedEmotion").innerText = '선택 안됨';
+        });
+    }
+})
+    </script>
+</body>
+</html>
