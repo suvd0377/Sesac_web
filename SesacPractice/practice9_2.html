@@ -1,120 +1,167 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>핸드폰 사용 시간</title>
-  <!-- Bootstrap CSS -->
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Sweetalert2 CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
-  <!-- Chart.js -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <!-- Sweetalert2 JS -->
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>감정 일기 쓰기</title>
+
+     <!-- Bootstrap CSS -->
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+     <!-- FullPage.js CSS -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.css">
+ 
+     <!-- SweetAlert2 CSS -->
+     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.4/dist/sweetalert2.min.css" rel="stylesheet">
+
+     <style>
+        bodyLO{
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        .section{
+            text-align: center;
+            padding: 5rem 0;
+            color: white;
+        }
+
+        .emotion-btn{
+            margin: 10px;
+            font-size: 1.5rem;
+            padding: 10px 20px;
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+            transition: 0.5s;
+        }
+
+        .emotion-btn:hover{
+            transform: scale(1.1);
+        }
+
+        .emotion.selection{
+            margin-top: 30px;
+        }
+
+        .diary-entry{
+            margin-top: 30px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .btn-submit{
+            margin-top: 20px;
+        }
+
+        .diary-form{
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .emotion-btn.joy { 
+            background-color: #f7a1d7; 
+        }
+        .emotion-btn.sadness { 
+            background-color: #5b9bd5; 
+        } 
+        .emotion-btn.disgust { 
+            background-color: #8fc540; 
+        } 
+        .emotion-btn.fear { 
+            background-color: #9b59b6; 
+        } 
+        .emotion-btn.anger { 
+            background-color: #e74c3c; 
+        } 
+        .emotion-btn.hope { 
+            background-color: #87cefa; 
+        }
+        .emotion-btn.calm { 
+            background-color: #98fb98; 
+        } 
+        .btn.confusion { 
+            background-color: #808080; 
+        } 
+     </style>
 </head>
 <body>
-  <div class="container mt-5">
-    <h2 class="text-center">핸드폰 사용 시간 추적기</h2>
+    <div id="fullpage">
+        <div class="section" style="background-image: url(./img/insideOut.jpg); background-size: cover;">
+            <h1>MOOD</h1>
+            <p>오늘의 기분 선택하세요</p>
+            <div class="emotion-selection">
+                <button class="emotion-btn joy" onclick="setEmotion('joy')">기쁨</button>
+                <button class="emotion-btn sadness" onclick="setEmotion('sadness')">슬픔</button>
+                <button class="emotion-btn disgust" onclick="setEmotion('disgust')">혐오</button>
+                <button class="emotion-btn fear" onclick="setEmotion('fear')">두려움</button>
+                <button class="emotion-btn anger" onclick="setEmotion('anger')">분노</button>
+                <button class="emotion-btn hope" onclick="setEmotion('hope')">희망</button>
+                <button class="emotion-btn calm" onclick="setEmotion('calm')">평온</button>
+                <button class="emotion-btn confusion" onclick="setEmotion('confusion')">혼간</button>
+            </div>
+        </div>
+        
+        <div class="section" style="background-image: url(./img/insideOut.jpg); background-size:cover;">
+            <h2>오늘 감정: <span id="selectedEmotion">선택 해주세요!</span></h2>
+            <form class="diary-form">
+                <div class="mb-3">
+                    <textarea class="form-control" id="diaryText" rows="5" placeholder="오늘의 기분과 생각을 적어보세요..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-success btn-submit">일기 저장하기</button>
+            </form>
+        </div>
+    </div>
     
-    <div class="card mt-3">
-      <div class="card-body">
-        <h5 class="card-title">오늘의 사용 시간 입력</h5>
-        <form id="usageForm">
-          <div class="form-group">
-            <label for="usageTime">사용 시간 (시간 단위)</label>
-            <input type="number" class="form-control" id="usageTime" placeholder="예: 2" required>
-          </div>
-          <button type="submit" class="btn btn-primary">입력</button>
-        </form>
-      </div>
-    </div>
+    <!-- Bootstrap JS, Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
 
-    <div class="card mt-3">
-      <div class="card-body">
-        <h5 class="card-title">일주일 사용 시간</h5>
-        <canvas id="usageChart" width="400" height="200"></canvas>
-      </div>
-    </div>
+    <!-- FullPage.js JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js"></script>
 
-    <div class="text-center mt-3">
-      <button class="btn btn-info" onclick="showTotalUsage()">전체 사용 시간 보기</button>
-    </div>
-  </div>
+    <!-- SweetAlert2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.4/dist/sweetalert2.min.js"></script>
 
-  <script>
+    <script>
+    new fullpage('#fullpage', {
+            autoScrolling: true,
+            scrollHorizontally: true,
+            navigation: true,
+            scrollOverflow: true,
+            onLeave: function(origin, destination, direction) {
+                if (destination.index === 1) {
+                    window.scrollTo(0, 0)
+                }
+            }
+        });
 
-    let usageData = [0, 0, 0, 0, 0, 0, 0]; 
-    let labels = [];
-    let currentDay = new Date().getDay(); 
-    
-    const dayLabels = ['일', '월', '화', '수', '목', '금', '토'];
-
-    for (let i = 0; i < 7; i++) {
-      let labelDate = new Date();
-      labelDate.setDate(labelDate.getDate() - (currentDay - i));
-      labels.push(dayLabels[(currentDay - i + 7) % 7] + " (" + labelDate.toLocaleDateString() + ")");
+    function setEmotion(emotion){
+        document.getElementById("selectedEmotion").innerText=emotion;
+        fullpage_api.moveTo(2);
     }
 
-    document.getElementById('usageForm').addEventListener('submit', function (e) {
-      e.preventDefault();
-      const usageTime = parseFloat(document.getElementById('usageTime').value);
-      const todayIndex = currentDay; 
-      usageData[todayIndex] += usageTime;
-
-
-      Swal.fire({
-        icon: 'success',
-        title: '입력 완료!',
-        text: `${dayLabels[todayIndex]}에 사용한 시간은 ${usageTime}시간입니다.`
-      });
-
-
-      updateChart();
-    });
-
-
-    const ctx = document.getElementById('usageChart').getContext('2d');
-    const usageChart = new Chart(ctx, {
-      type: 'bar', 
-      data: {
-        labels: labels,
-        datasets: [{
-          label: '일주일 동안 핸드폰 사용 시간 (시간)',
-          data: usageData,
-          backgroundColor: 'rgba(75, 192, 192, 0.2)',
-          borderColor: 'rgba(75, 192, 192, 1)',
-          borderWidth: 1
-        }]
-      },
-      options: {
-        responsive: true,
-        scales: {
-          y: {
-            beginAtZero: true
-          }
-        }
-      }
-    });
-
-    function updateChart() {
-      usageChart.update();
+    document.querySelector('.diary-form').addEventListener('submit', function(event){
+        event.preventDefault()
+        
+        const emotion = document.getElementById("selectedEmotion").innerText
+        const diaryText = document.getElementById("diaryText").value
+        
+        if(!emotion || !diaryText){
+            Swal.fire('감정을 선택하고 일기를 작성해주세요!', '', 'warning');
+        }else{
+            Swal.fire({
+                title: '일기 작성 완료!',
+                text: '당신의 감정은 "' + emotion + '" 입니다.',
+                icon: 'success',
+                confirmButtonText: '확인'
+            }).then(() => {
+                document.getElementById("diaryText").value = '';
+                document.getElementById("selectedEmotion").innerText = '선택 안됨';
+        });
     }
-
-    function showTotalUsage() {
-      const totalUsage = usageData.reduce((acc, time) => acc + time, 0);
-      const avgUsage = (totalUsage / usageData.length).toFixed(2);
-      Swal.fire({
-        title: '사용 통계',
-        text: `전체 사용 시간: ${totalUsage}시간\n평균 사용 시간: ${avgUsage}시간`,
-        icon: 'info'
-      });
-    }
-  </script>
-
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+})
+    </script>
 </body>
 </html>
-
