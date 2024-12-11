@@ -1,5 +1,9 @@
 const User = require("../model/User");
 
+exports.main = (req, res) => {
+  res.render("index");
+};
+
 exports.login = (req, res) => {
   const { id, password } = req.body;
 

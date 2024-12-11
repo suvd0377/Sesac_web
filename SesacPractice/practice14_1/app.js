@@ -14,7 +14,7 @@ app.use("/users", userRoutes);
 
 //API
 app.get("/", (req, res) => {
-  res.render("index");
+  res.render("login");
 });
 
 app.listen(PORT, () => {

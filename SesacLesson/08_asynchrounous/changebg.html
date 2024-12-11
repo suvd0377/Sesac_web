@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>콜백 지옥 경험하기</title>
+  </head>
+  <body>
+    <h1>배경 색이 1초 1번씩 변경이 됩니다.</h1>
+    <script>
+      setTimeout(() => {
+        document.body.style.background = "red";
+        setTimeout(() => {
+          document.body.style.background = "orange";
+          setTimeout(() => {
+            document.body.style.background = "yellow";
+            setTimeout(() => {
+              document.body.style.background = "green";
+              setTimeout(() => {
+                document.body.style.background = "blue";
+              }, 1000);
+            }, 1000);
+          }, 1000);
+        }, 1000);
+      }, 1000);
+    </script>
+  </body>
+</html>

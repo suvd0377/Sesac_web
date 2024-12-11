@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Result</title>
+    <style>
+      span {
+        color: violet;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>결과 확인하기</h1>
+    <p><span><%=userInfo.id%></span>님 환영합니다.</p>
+    <p>성별: <%= wm %></p>
+    <p>생년월일: <%= birthday %></p>
+    <p>
+      관심사: <% hobbies.forEach(function(hobby) { %>
+      <li><%= hobby %></li>
+      <% }) %>
+    </p>
+    <p>좋아하는 색상: <span><%= color %></span></p>
+    <p>좋아하는 숫자: <span><%= number %></span></p>
+
+    <a href="/">홈으로 이동하기</a>
+  </body>
+</html>

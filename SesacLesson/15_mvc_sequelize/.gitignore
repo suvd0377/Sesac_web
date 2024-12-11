@@ -1,0 +1,4 @@
+node_modules/
+#config.json에 추가해야함
+config.json
+

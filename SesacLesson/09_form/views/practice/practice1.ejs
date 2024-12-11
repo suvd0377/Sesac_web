@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>실습 문제 1</title>
+  </head>
+  <body>
+    <h1>실습문제 1</h1>
+    <form action="practice1-get" method="get" name="practice1" target="_blank">
+      <label>이름:<input type="text" name="name" id="name" /></label>
+
+      <br />
+
+      <fieldset name="wm">
+        <legend>성별</legend>
+        <label> <input type="radio" name="wm" id="man" />남자</label>
+        <label> <input type="radio" name="wm" id="man" />여자</label>
+      </fieldset>
+
+      <br />
+      <form action="bday">
+        <fieldset name="birthday">
+          <legend>생년월일</legend>
+          <label for="birthday">
+            <select name="yyyy" id="year">
+              <% for(i =1910; i<=2025; i++){%>
+              <option value="<%=i%>" <%="i" %>></option>
+              <% } %>
+            </select></label
+          >
+          <label for="birthday">
+            <select name="mm" id="month">
+              <% for(i =1; i<=12; i++){%>
+              <option value="<%=i%>" <%="i" %>></option>
+              <% } %>
+            </select></label
+          >
+          <label for="birthday">
+            <select name="dd" id="day">
+              <% for(i =1910; i<=2025; i++){%>
+              <option value="<%=i%>" <%="i" %>></option>
+              <% } %>
+            </select></label
+          >
+        </fieldset>
+      </form>
+
+      <br />
+      <fieldset name="hobby">
+        <legend>관심사</legend>
+        <label for="hobby">
+          <input type="checkbox" name="hobby" id="travel" />여행</label
+        >
+        <label for="hobby">
+          <input type="checkbox" name="hobby" id="fashion" />패션</label
+        >
+        <label for="hobby">
+          <input type="checkbox" name="hobby" id="food" />음식</label
+        >
+        <label for="hobby">
+          <input type="checkbox" name="hobby" id="sports" />운동</label
+        >
+      </fieldset>
+
+      <br />
+      <button>회원가입</button>
+
+      <br />
+      <a href="/">홈으로 이동하기</a>
+    </form>
+  </body>
+</html>
