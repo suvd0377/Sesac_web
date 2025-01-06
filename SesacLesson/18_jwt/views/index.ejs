@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JWT</title>
+  </head>
+  <body>
+    <h1>JWT</h1>
+    <div id="info"></div>
+    <script>
+      // 즉시 실행 함수
+      (function text(t) {
+          console.log(t)
+      })("hello")
+
+      (()=>{
+          console.log("화살표 함수 즉시 실행")
+      })()
+
+      (function (){
+          console.log("즉시 실행 함수")
+      })()
+
+      // axios 요청과 전역 변수 선언을 피하기 위해서
+      // 즉시 실핼 함수 사용
+      (async function (params) {
+          const token = localStorage.getItem("login")
+          const info = document.getElementById("info")
+          console.log(token)
+          let data;
+          if(!token) {
+              // 토큰이 없을 때
+              // 로그인 페이지로 이동할 수 있도록
+              data = '<a href="/login"></a>'
+          }else{
+              // 토큰이 있을 때
+              // 토큰 검증 과정을 거쳐서 (inserver)
+              // POST /token
+              const response = axios({
+                  method: "post",
+                  url: "token",
+                  headers: {
+                      Authorization: `Bearer ${token},
+                  },
+              })
+          }
+      })()
+    </script>
+  </body>
+</html>

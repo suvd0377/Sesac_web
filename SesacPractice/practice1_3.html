@@ -1,27 +1,54 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Colspan과 Rowspan 이용하기</title>
-</head>
-<body>
+  </head>
+  <body>
     <table border="1" cellspacing="0" cellpadding="50" width="700" height="500">
-        <tr align="center">
-            <td colspan="2">1</td>
-            <td rowspan="2">2</td>
-        </tr>
+      <tr align="center">
+        <td colspan="2">1</td>
+        <td rowspan="2">2</td>
+      </tr>
 
-        <tr align="center"> 
-            <td rowspan="2">3</td>
-            <td >center</td>
-        </tr>
+      <tr align="center">
+        <td rowspan="2">3</td>
+        <td>center</td>
+      </tr>
 
-        <tr align="center">
-            <td colspan="2">4</td>
-        </tr>
+      <tr align="center">
+        <td colspan="2">4</td>
+      </tr>
     </table>
+  </body>
+</html>
 
-    
-</body>
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>optgroup 예제</title>
+  </head>
+  <body>
+    <h1>과일과 채소 선택</h1>
+    <form>
+      <label for="food">원하는 항목을 선택하세요:</label>
+      <select id="food" name="food">
+        <optgroup label="과일">
+          <option value="apple">사과</option>
+          <option value="banana">바나나</option>
+          <option value="orange">오렌지</option>
+        </optgroup>
+        <optgroup label="채소">
+          <option value="carrot">당근</option>
+          <option value="broccoli">브로콜리</option>
+          <option value="spinach">시금치</option>
+        </optgroup>
+      </select>
+      <br /><br />
+      <button type="submit">제출</button>
+    </form>
+  </body>
 </html>

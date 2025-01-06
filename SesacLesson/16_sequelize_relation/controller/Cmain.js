@@ -1,9 +1,9 @@
 // const models = require("../models"); // models ={Player:.., Profile:., }
 // models.Player.findAll()
-const { Op } = require("sequelize");
-const { Player, Profile, Team } = require("../models");
+const { Op } = require('sequelize');
+const { Player, Profile, Team } = require('../models');
 exports.main = (req, res) => {
-  res.render("index");
+  res.render('index');
 };
 
 // 전체 선수 조회
@@ -15,8 +15,8 @@ exports.getAllPlayers = async (req, res) => {
     console.log(players);
     res.send(players);
   } catch (err) {
-    console.log("err", err);
-    res.status(500).send("server error");
+    console.log('err', err);
+    res.status(500).send('server error');
   }
 };
 
@@ -31,14 +31,14 @@ exports.getPlayer = async (req, res) => {
     const player = await Player.findOne({
       where: { player_id: playerId },
       include: [
-        { model: Profile, attributes: ["position", "salary"] },
+        { model: Profile, attributes: ['position', 'salary'] },
         // attributes의 배열은 profile테이블의 컬럼명과 일치해야 함
       ],
     });
     res.send(player);
   } catch (err) {
-    console.log("err", err);
-    res.status(500).send("server error");
+    console.log('err', err);
+    res.status(500).send('server error');
   }
 };
 
@@ -64,8 +64,8 @@ exports.postPlayer = async (req, res) => {
     const newPlayer = await Player.create(req.body);
     res.send(newPlayer);
   } catch (err) {
-    console.log("err", err);
-    res.status(500).send("server error");
+    console.log('err', err);
+    res.status(500).send('server error');
   }
 };
 
@@ -88,12 +88,12 @@ exports.patchPlayer = async (req, res) => {
         where: {
           player_id: req.params.playerId,
         },
-      }
+      },
     );
     res.send(updatedPlayer);
   } catch (err) {
-    console.log("err", err);
-    res.status(500).send("server error");
+    console.log('err', err);
+    res.status(500).send('server error');
   }
 };
 
@@ -109,13 +109,13 @@ exports.deletePlayer = async (req, res) => {
         player_id: playerId,
       },
     });
-    console.log("삭제 여부", isDeleted);
+    console.log('삭제 여부', isDeleted);
     if (Boolean(isDeleted)) {
-      res.send("삭제 성공");
+      res.send('삭제 성공');
     } else res.send(false);
   } catch (err) {
-    console.log("err", err);
-    res.status(500).send("server error");
+    console.log('err', err);
+    res.status(500).send('server error');
   }
 };
 
@@ -127,16 +127,16 @@ exports.getTeams = async (req, res) => {
     console.log(req.query); // {} {sort} {search}
     const { sort, search } = req.query;
     let teams;
-    if (sort === "name_asc") {
+    if (sort === 'name_asc') {
       // 팀을 이름순으로 정렬해서 전체 조회
       teams = await Team.findAll({
-        attributes: ["team_id", "name"], // SELECT team_id, name
-        order: [["name", "ASC"]], // ORDER BY name ASC
+        attributes: ['team_id', 'name'], // SELECT team_id, name
+        order: [['name', 'ASC']], // ORDER BY name ASC
       });
     } else if (search) {
       // search 키워드 기준으로 검색후 조회
       teams = await Team.findAll({
-        attributes: ["team_id", "name"], // SELECT team_id, name
+        attributes: ['team_id', 'name'], // SELECT team_id, name
         where: {
           // WHERE name LIKE '%K%'
           name: { [Op.like]: `%${search}%` },
@@ -147,44 +147,41 @@ exports.getTeams = async (req, res) => {
       // search가 안들어왔을 때
       // 전체 조회
       teams = await Team.findAll({
-        attributes: ["team_id", "name"],
+        attributes: ['team_id', 'name'],
       });
     }
     // 검색 및 정렬 로직 종료
 
     // -----응답-----
-    if (teams.length === 0) res.send("다시 검색하세요. 정보가 없어요.");
+    if (teams.length === 0) res.send('다시 검색하세요. 정보가 없어요.');
     else {
       res.send(teams);
     }
   } catch (err) {
-    console.log("err", err);
-    res.status(500).send("server error");
+    console.log('err', err);
+    res.status(500).send('server error');
   }
 };
 
 // GET /teams/ :teamId
 //특정 팀 조회
-exports.getTeam = ()=> {
-    try {
-        console.log(req.params); 
-        res.end()
-        const { teamId } = req.params;
-    
-        const team = await Team.findOne({
-          where: { team_id: teamId },
-          include: [
-            { },
-          ]
-        });
-        res.send(team);
-      } catch (err) {
-        console.log("err", err);
-        res.status(500).send("server error");
-      }
-    };
+exports.getTeam = async () => {
+  try {
+    console.log(req.params);
+    res.end();
+    const { teamId } = req.params;
+
+    const team = await Team.findOne({
+      where: { team_id: teamId },
+      include: [{}],
+    });
+    res.send(team);
+  } catch (err) {
+    console.log('err', err);
+    res.status(500).send('server error');
+  }
+};
 
 //  GET /teams/ :teamId/players
 // 특정 팀의 모든 선수 조회 >> join 필요
-exports.getTeamPlayers=(req,res)=>{
-}
+exports.getTeamPlayers = (req, res) => {};
