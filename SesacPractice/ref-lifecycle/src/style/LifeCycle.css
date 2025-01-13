@@ -1,0 +1,8 @@
+.container {
+  border: 1px solid gray;
+}
+
+.container div {
+  width: 100px;
+  height: 100px;
+}
