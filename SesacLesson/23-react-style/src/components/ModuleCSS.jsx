@@ -1,6 +1,6 @@
-import classnames from './';
+// import classnames from './';
 import style from '../style/style.module.css';
-import Names from 'classnames/binds';
+// import Names from 'classnames/binds';
 export default function () {
   const setting = Names.bind(style);
   return (

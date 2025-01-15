@@ -1,0 +1,45 @@
+$color-red: #d04848;
+$color-orange: #f3b95f;
+$color-yellow: #fde767;
+$color-green: #96ceb4;
+$color-blue: #6895d2;
+
+$boxShadow: 2px 2px 6px #6969694d;
+
+@mixin box {
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+@mixin circle($circleColor, $circleOpacity) {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 1px solid black;
+  display: inline-block;
+  background-color: $circleColor;
+  opacity: $circleOpacity;
+}
+
+@mixin box2(
+  $squareBgColor: $color-red,
+  $squareFontSize: 15px,
+  $squareColor: gray
+) {
+  @include box();
+  background-color: $squareBgColor;
+  line-height: 100px;
+  text-align: center;
+  font-size: $squareFontSize;
+  color: $squareColor;
+  @if $squareBgColor==$color-red {
+    border-radius: 50%;
+  } @else if $squareColor==black {
+    border-radius: 25%;
+  } @else {
+    border-radius: 0;
+  }
+}

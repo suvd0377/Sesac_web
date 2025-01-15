@@ -1,15 +1,12 @@
 {
-  "name": "23-react-style",
+  "name": "24-react-hooks",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "classnames": "^2.5.1",
     "cra-template": "1.2.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-scripts": "5.0.1",
-    "sass": "^1.83.4",
-    "styled-components": "^6.1.14"
+    "react-scripts": "5.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
