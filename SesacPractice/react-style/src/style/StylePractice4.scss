@@ -1,0 +1,53 @@
+@import 'util';
+
+@mixin move($color, $distance) {
+  position: relative;
+  background-color: $color;
+  animation: move-clockwise 2s linear infinite;
+  --distance: #{$distance};
+}
+
+@keyframes move-clockwise {
+  0% {
+    transform: translate(var(--distance), 0);
+  }
+  25% {
+    transform: translate(var(--distance), var(--distance));
+  }
+  50% {
+    transform: translate(0, var(--distance));
+  }
+  75% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(var(--distance), 0);
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 50px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.circle {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.pink {
+  @include move($color-pink, 10px);
+}
+
+.yellow {
+  @include move($color-yellow, 20px);
+}
+
+.green {
+  @include move($color-green, 30px);
+}

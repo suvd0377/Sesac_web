@@ -1,0 +1,63 @@
+@import 'util';
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.name {
+  font-size: 50px;
+  color: $primary-color;
+  text-align: center;
+  margin-bottom: 10px;
+  margin-top: 5px;
+}
+
+.post-list {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid $border-color;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 0 2px 4px #fba2a2eb;
+}
+
+.post-item {
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid $border-color;
+  border-radius: 6px;
+  background-color: $background-color;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .post-header {
+    font-size: 16px;
+    font-weight: bold;
+    color: $primary-color;
+    margin-bottom: 10px;
+
+    span {
+      display: inline-block;
+
+      &:first-child {
+        margin-right: 10px;
+      }
+    }
+  }
+
+  p {
+    font-size: 14px;
+    color: $text-color;
+    line-height: 1.5;
+  }
+}
+
+.loading {
+  text-align: center;
+  font-size: 16px;
+  color: $loading-color;
+}

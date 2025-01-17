@@ -1,0 +1,74 @@
+@import 'util';
+
+.larva {
+  position: relative;
+
+  > .body {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+
+    &.body1 {
+      top: 100px;
+      left: 100px;
+      background-color: $color-1;
+
+      > .white {
+        position: absolute;
+        top: 35%;
+        left: 20%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+
+        > .black {
+          position: absolute;
+          top: 35%;
+          left: 25%;
+          transform: translate(-50%, -50%);
+          background-color: black;
+          width: 15px;
+          height: 15px;
+          border-radius: 50%;
+        }
+      }
+    }
+
+    &.body2 {
+      top: 150px;
+      left: 160px;
+      background-color: $color-2;
+    }
+
+    &.body3 {
+      top: 190px;
+      left: 200px;
+      background-color: $color-3;
+    }
+
+    &.body4 {
+      top: 240px;
+      left: 220px;
+      background-color: $color-4;
+    }
+
+    &.body5 {
+      top: 280px;
+      left: 280px;
+      background-color: $color-5;
+      z-index: 10;
+    }
+  }
+
+  > .img-grass {
+    position: absolute;
+    top: 280px;
+    left: 100px;
+    width: 50%;
+    height: 100px;
+    background-image: url('../assets/grass.png');
+  }
+}
