@@ -1,0 +1,51 @@
+// #461220
+// #8c2f39
+// #B23A48
+// #ffbdb6
+// #FED0BB
+
+.container {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  max-width: 400px;
+  margin: 0 auto;
+  border: 1px solid #f96868;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px #f96868;
+}
+
+h1 {
+  text-align: center;
+  color: #461220;
+}
+
+.label-container {
+  margin-bottom: 10px;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #fcb9b2;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  padding: 10px;
+  background-color: #fed0bb;
+  margin-bottom: 8px;
+  border: 1px solid #b23a48;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+li:hover {
+  background-color: #b23a48;
+}

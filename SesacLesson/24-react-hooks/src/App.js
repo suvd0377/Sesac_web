@@ -11,12 +11,16 @@ function App() {
   useTitle('Hook 배워보기');
   return (
     <>
-      {/* <UseMemo1 />
-      <UseMemoObj /> */}
-      {/* <UsecallbackEx1 />
+      <h4>Memo</h4>
+      <UseMemo1 />
+      <h4>MemoObj</h4>
+      <UseMemoObj />
+      <h4>Callback</h4>
+      <UsecallbackEx1 />
       <UsecallbackEx2 />
-      <UseReduce /> */}
-      <CustomHook />
+      <h4>Reduce</h4>
+      <UseReduce />
+      {/* <CustomHook /> */}
       <Form />
     </>
   );
