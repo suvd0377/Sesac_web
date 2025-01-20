@@ -1,10 +1,11 @@
 import React from 'react';
-import { useParams, useSearchParams } from 'react-router-dom';
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 
 export default function Student() {
-  const { name: paramName } = useParams(); // `name`을 `paramName`으로 변경
+  const navigate = useNavigate();
+  const { name: paramName } = useParams();
   const [searchParams] = useSearchParams();
-  const queryName = searchParams.get('name'); // 쿼리 스트링에서 `name` 값 가져오기
+  const queryName = searchParams.get('name');
 
   return (
     <>
@@ -12,7 +13,7 @@ export default function Student() {
       <br />
       <h3>실제 이름은 {queryName || paramName || '알 수 없음'}</h3>
       <br />
-      <button onClick={() => window.history.back()}>이전 페이지로</button>
+      <button onClick={() => navigate(-1)}>이전 페이지로</button>
     </>
   );
 }
