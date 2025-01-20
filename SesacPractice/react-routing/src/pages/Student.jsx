@@ -9,7 +9,7 @@ export default function Student() {
 
   return (
     <>
-      <h2>학생 이름은 {paramName || queryName}입니다.</h2>
+      <h3>학생 이름은 {paramName || queryName}입니다.</h3>
       <br />
       <h3>실제 이름은 {queryName || paramName || '알 수 없음'}</h3>
       <br />
