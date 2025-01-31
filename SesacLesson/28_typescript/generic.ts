@@ -42,7 +42,7 @@ interface Phone<T> {
   option: T;
 }
 
-const iphone15: Phone = {
+const iphone15: Phone<string> = {
   company: 'apple',
   createAt: new Date('2023-10-13'),
   option: 'black',
