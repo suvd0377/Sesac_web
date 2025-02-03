@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import { GlobalStyle } from '../components/GlobalStyle';
 import Header from '../components/practice/Header';
 import { MatzipInterface } from '../types/interface';
+import { useState } from 'react';
+import CardContainer from '../components/practice/CardContainer';
 
 const Inner = styled.div`
   max-width: 1000px;
@@ -21,6 +23,9 @@ const GridDiv = styled.div`
 `;
 
 export default function Matzip() {
+  const [gandong, setGangdong] = useState(true);
+  const [dobong, setDobong] = useState(false);
+  const [mapo, setMapo] = useState(false);
   const mapoArr: MatzipInterface[] = [
     {
       imgSrc: '/assets/을밀대.webp',
@@ -89,21 +94,26 @@ export default function Matzip() {
     { imgSrc: '', title: '하누소', desc: '설명어쩌구2', idx: 2 },
     { imgSrc: '', title: '판다쓰', desc: '설명어쩌구2', idx: 3 },
     { imgSrc: '', title: '옹기꽃게장', desc: '설명어쩌구2', idx: 4 },
-    { imgSrc: '', title: '호호분식', desc: '설명어쩌구2', idx: 4 },
+    { imgSrc: '', title: '호호분식', desc: '설명어쩌구2', idx: 5 },
   ];
+
   return (
     <>
       <GlobalStyle />
-      <Header />
+      <Header
+        gandgong={gandong}
+        dobong={dobong}
+        mapo={mapo}
+        setDobong={setDobong}
+        setMapo={setMapo}
+        setGangdong={setGangdong}
+      />
       <main>
         <Inner>
           <GridDiv>
-            <div>1</div>
-            <div>2</div>
-            <div>3</div>
-            <div>1</div>
-            <div>2</div>
-            <div>3</div>
+            <CardContainer isShowContent={gandong} matzipArr={gangdongArr} />
+            <CardContainer isShowContent={dobong} matzipArr={dobongArr} />
+            <CardContainer isShowContent={mapo} matzipArr={mapoArr} />
           </GridDiv>
         </Inner>
       </main>

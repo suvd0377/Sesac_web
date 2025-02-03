@@ -1,3 +1,4 @@
+import styled from 'styled-components';
 import { MatzipInterface } from '../../types/interface';
 
 const CardDiv = styled.div`
@@ -9,12 +10,11 @@ const CardDiv = styled.div`
   border-radius: 10px;
   padding: 0 0.5rem;
 
-  @media screen and (max-width: 840px) {
+  @media screen and(max-width: 840px) {
     width: 200px;
     height: 280px;
   }
-
-  @media screen and (max-width: 720px) {
+  @media screen and(max-width: 720px) {
     width: 180px;
     height: 255px;
   }
@@ -23,17 +23,17 @@ const CardDiv = styled.div`
 interface ImageDivProps {
   src: string;
 }
-
 const ImageDiv = styled.div<ImageDivProps>`
   width: 80%;
   height: 150px;
   border: 1px solid #777;
   margin: 1rem auto;
-  background-image: url(${props => props.src});
+  background-image: url(${(props: ImageDivProps) => props.src});
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 `;
+
 const P = styled.p`
   /* 말줄임표 처리하기 위한 css */
   text-overflow: ellipsis;

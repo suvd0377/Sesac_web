@@ -1,11 +1,12 @@
-const GlobalStyle = createGlobalStyle`
+import { createGlobalStyle } from 'styled-components';
+
+export const GlobalStyle = createGlobalStyle`
 @font-face {
     font-family: 'Ownglyph_ParkDaHyun';
     src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2411-3@1.0/Ownglyph_ParkDaHyun.woff2') format('woff2');
     font-weight: normal;
-   font-style: normal;
+    font-style: normal;
 }
-
 
 *{
     margin: 0;
@@ -15,7 +16,7 @@ const GlobalStyle = createGlobalStyle`
 }
 
 html{
-    font-size:20px
+    font-size: 20px;
 }
 
 a{
@@ -23,6 +24,6 @@ a{
 }
 
 ul, ol{
-list-style: none;
+    list-style: none;
 }
 `;
