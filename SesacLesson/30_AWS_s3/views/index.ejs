@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이미지 업로드</title>
+  </head>
+  <body>
+    <h3>이미지 확인하기</h3>
+    <img
+      src="https://somii-bucket.s3.ap-northeast-2.amazonaws.com/img.jpg"
+      alt="aws img "
+      width="100"
+    />
+
+    <h3>이미지 업로드 폼</h3>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+      <input type="file" name="image" id="image" />
+      <button type="submit">업로드</button>
+    </form>
+
+    <h3>업르도된 이미지 확인</h3>
+    <% if (imageUrl !=='') {%>
+
+    <img src="<%= imageUrl %>" alt="업로드된 이미지" />
+    <%} %>
+  </body>
+</html>
