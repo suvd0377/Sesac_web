@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Socket.io 실습</title>
+    <script src="/socket.io/socket.io.js"></script>
+  </head>
+  <body>
+    <h1>Socket.io 실습</h1>
+    <button onclick="sendMessage('hello')">Hello</button>
+    <button onclick="sendMessage('study')">Study</button>
+    <button onclick="sendMessage('bye')">Bye</button>
+    <p id="response"></p>
+
+    <script>
+      const socket = io();
+
+      function sendMessage(msg) {
+        socket.emit('message', msg);
+      }
+
+      socket.on('전송할 이벤트 명', msg => {
+        document.getElementById('response').innerText = msg;
+      });
+    </script>
+  </body>
+</html>
