@@ -1,5 +1,5 @@
 const express = require('express');
-const app = express();
+const app = express;
 const PORT = 8080;
 
 // socket.io 의 소켓이 http모듈로 생성된 서버에만 동작

@@ -1,6 +1,5 @@
 const express = require('express');
 const http = require('http');
-const { disconnect } = require('process');
 const app = express();
 const server = http.createServer(app);
 const io = require('socket.io')(server);
@@ -17,6 +16,7 @@ app.get('/', (req, res) => {
 /* socket */
 const nickInfo = {};
 // {socketId:nickname, ... , }
+console.log(nickInfo);
 io.on('connection', socket => {
   // [닉네임 사용]-2
   socket.on('checkNick', nickname => {
@@ -39,14 +39,40 @@ io.on('connection', socket => {
 
   // [4-2] 메세지를 하나의 클라이언트에게 받아서
   // 전체 클라이언트에게 전달
-  socket.on('send', msg => {
-    io.emit('message', { id: nickInfo[socket.id], message: msg });
+  socket.on('send', msgData => {
+    // msgData:{myNick, dm="socket.id" 혹은 "all", msg}
+
+    if (msgData.dm === 'all') {
+      // 전체에게 보내기
+      io.emit('message', {
+        id: msgData.myNick,
+        message: msgData.msg,
+      });
+    } else {
+      let dmSocketId = msgData.dm;
+      // 특정 클라이언트에게만 보내기 (나를 제외)
+      io.to(dmSocketId).emit('message', {
+        id: msgData.myNick,
+        message: msgData.msg,
+        isDm: true,
+      });
+
+      // 나에게만 보내기
+      socket.emit('message', {
+        id: msgData.myNick,
+        message: msgData.msg,
+        isDm: true,
+      });
+    }
   });
-  // 퇴장
+
+  // [클라이언트 퇴장 공고]
   socket.on('disconnect', () => {
-    io.emit('notice', `${nickInfo[socket.id]}logout`);
-    //nickInfo delete
-    delete nickInfo[socket.id];
+    io.emit('notice', `${nickInfo[socket.id]}님이 퇴장하셨습니다.`);
+    // nickInfo에서 삭제된 클라이언트 정보 삭제
+    delete nickInfo[socket.id]; // 객체에서 특정 데이터 삭제 구문
+    console.log('deleted?', nickInfo);
+    io.emit('updateNicks', nickInfo);
   });
 });
 
